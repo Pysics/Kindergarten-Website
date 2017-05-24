@@ -2,31 +2,35 @@ extends ../layouts/default
 
 block intro
 	.container
-		h1 Contact Us
+		h1 在线预约<span style="font-size:17px; color: red; padding-left: 10px;">(我们会严格保密您的信息)</span>
 		
 block content
 	.container
 		if enquirySubmitted
-			h3 Thanks for getting in touch.
+			h3 谢谢您,我们的工作人员会尽快与您取得联系！
 		else
 			.row: .col-sm-8.col-md-6
 				form(method='post')
 					input(type='hidden', name='action', value='contact')
 					.form-group(class=validationErrors.name ? 'has-error' : null)
-						label Name
+						label 申请人
 						input(type='text', name='name.full', value=formData['name.full']).form-control
 					.form-group(class=validationErrors.email ? 'has-error' : null)
-						label Email
+						label 邮箱
 						input(type='email', name='email', value=formData.email).form-control
 					.form-group
-						label Phone
-						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
+						label 联系电话
+						input(type='text', name='phone', value=formData.phone).form-control
+					.form-group
+						label QQ
+						input(type='text', name='qq', value=formData.qq).form-control
 					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
 						label What are you contacting us about?
 						select(name='enquiryType').form-control
 							option(value='') (select one)
 							each type in enquiryTypes
 								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+
 					.form-group(class=validationErrors.message ? 'has-error' : null)
 						label Message
 						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message

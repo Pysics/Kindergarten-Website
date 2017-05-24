@@ -1,25 +1,19 @@
-extends ../layouts/default
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
-block intro
-	.container
-		h1 Gallery
-	
-block content
-	.container
-		if galleries.length
-			each gallery in galleries
-				h2= gallery.name
-					if gallery.publishedDate
-						.pull-right.text-muted= gallery._.publishedDate.format('Do MMM YYYY')
-				
-				.row.gallery-images
-					if gallery.heroImage.exists
-						.col-sm-4.col-md-4.gallery-image: img(src=gallery._.heroImage.limit(680,680)).img-rounded
-						.col-sm-8.col-md-8: .row
-							each image in gallery.images
-								.col-xs-4.col-sm-4.col-md-3.gallery-image: img(src=image.limit(300,300)).img-rounded
-					else
-						each image in gallery.images
-							.col-xs-6.col-sm-4.col-md-3.gallery-image: img(src=image.limit(300,300)).img-rounded
-		else
-			h3.text-muted There are no image galleries yet.
+	include ../layouts/head
+
+	<body class="home page-template page-template-template-fullwidth page-template-template-fullwidth-php page page-id-4 tribe-no-js fullwidth header-sticky-enabled header-sticky-hide  one-col wpb-js-composer js-comp-ver-5.0.1 vc_responsive">
+		<div class="pageloader"></div>
+		<div id="tpath_wrapper" class="wrapper-class">
+		include ../layouts/menu.pug
+
+		include ./galleryMain
+		
+		include ../layouts/footer.html
+		
+		</div>
+		include ../layouts/footerScript.html
+	</body>
+</html>

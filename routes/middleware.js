@@ -19,10 +19,12 @@ var _ = require('lodash');
 */
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
-		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
-		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: '首页', key: 'home', href: '/' },
+		{ label: '新闻', key: 'news', href: '/news' },
+		{ label: '图册', key: 'gallery', href: '/gallery' },
+		{ label: '课程', key: 'course', href: '/course' },
+		{ label: '关于我们', key: 'about', href: '/about' },
+		{ label: '联系我们', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
 	next();
