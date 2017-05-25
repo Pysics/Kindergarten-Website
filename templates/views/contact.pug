@@ -5,34 +5,43 @@ block intro
 		h1 在线预约<span style="font-size:17px; color: red; padding-left: 10px;">(我们会严格保密您的信息)</span>
 		
 block content
-	.container
+	.container.zxyy
 		if enquirySubmitted
-			h3 谢谢您,我们的工作人员会尽快与您取得联系！
+			h3 预约成功！我们的工作人员会尽快与您取得联系。
 		else
-			.row: .col-sm-8.col-md-6
-				form(method='post')
-					input(type='hidden', name='action', value='contact')
-					.form-group(class=validationErrors.name ? 'has-error' : null)
-						label 申请人
-						input(type='text', name='name.full', value=formData['name.full']).form-control
-					.form-group(class=validationErrors.email ? 'has-error' : null)
-						label 邮箱
-						input(type='email', name='email', value=formData.email).form-control
-					.form-group
-						label 联系电话
-						input(type='text', name='phone', value=formData.phone).form-control
-					.form-group
-						label QQ
-						input(type='text', name='qq', value=formData.qq).form-control
-					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
-						label What are you contacting us about?
-						select(name='enquiryType').form-control
-							option(value='') (select one)
-							each type in enquiryTypes
-								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
-
-					.form-group(class=validationErrors.message ? 'has-error' : null)
-						label Message
-						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
-					.form-actions
-						button(type='submit').btn.btn-primary Send
+			.row
+				.col-sm-2
+				.col-sm-8
+					form(method='post')
+						input(type='hidden', name='action', value='contact')
+						.form-group
+							label 申请人
+							input(type='text', name='name.full', value=formData['name.full']).form-control
+						.form-group
+							label 宝宝姓名
+							input(type='text', name='babyName', value=formData.babyName).form-control
+						.form-group
+							label 宝宝性别
+							select(name='enquiryType').form-control
+								option(value='') (请选择)
+								each type in enquiryTypes
+									option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+						.form-group
+							label 联系电话
+							input(type='text', name='phone', value=formData.phone).form-control
+						.form-group
+							label QQ
+							input(type='text', name='qq', value=formData.qq).form-control
+						.form-group
+							label 邮箱
+							input(type='text', name='email', value=formData.email).form-control
+						.form-group
+							label 家庭住址
+							input(type='text', name='address', value=formData.address).form-control
+						.form-group
+							label 留言
+							textarea(name='message', placeholder='我想说...' rows=4).form-control= formData.message
+						.form-actions
+							button(type='submit').btn.btn-primary 发送
+				
+				.col-sm-2

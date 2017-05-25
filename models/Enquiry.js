@@ -13,18 +13,20 @@ var Enquiry = new keystone.List('Enquiry', {
 
 Enquiry.add({
 	name: { type: Types.Name, required: true },
-	email: { type: Types.Email, required: true },
-	phone: { type: String },
+	email: { type: Types.Email },
+	phone: { type: String, required: true },
 	qq: { type: String },
+	babyName: {type: String},
+	address: {type: String},
 	enquiryType: { type: Types.Select, options: [
-		{ value: 'message', label: 'Just leaving a message' },
-		{ value: 'question', label: 'I\'ve got a question' },
-		{ value: 'other', label: 'Something else...' },
+		{ value: 'body', label: '男孩' },
+		{ value: 'girl', label: '女孩' },
+		{ value: 'other', label: '其ta' },
 	] },
 	message: { type: Types.Markdown, required: true },
 	createdAt: { type: Date, default: Date.now },
 });
 
 Enquiry.defaultSort = '-createdAt';
-Enquiry.defaultColumns = 'name, email, enquiryType, createdAt';
+Enquiry.defaultColumns = 'name, babyName, phone, createdAt';
 Enquiry.register();

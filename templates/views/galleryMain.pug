@@ -38,26 +38,88 @@
 									<div id="tpath-portfolio-wrapper-1" class="tpath-portfolio-grid-wrapper tpath-isotope-system style-grid">
 										<div class="tpath-isotope-wrapper">
 											<div id="tpath_portfolio_1" class="tpath-portfolio tpath-isotope-layout grid-style portfolio-cols-4" data-columns="4" data-gutter="20" data-type="masonry" data-layout="fitRows">
-												<div id="portfolio-199" class="portfolio-item isotope-post post-iso-w3 post-iso-h3 grid-cat-3 grid-cat-9 ">
-													<div class="post-inside-wrapper margin-top-20">
-														<div class="portfolio-content">
-															<div class="portfolio-image-overlay-wrapper">
-																<div class="portfolio-image"><img class="img-responsive" src="/wp-content/uploads/2016/12/image-005-370x340.jpg" width="370" height="340" alt="Happy Paintings" /></div>
-															</div>
-															<div class="portfolio-mask overlay-mask style-fullwidth text-center">
-																<div class="overlay-content">
-																	<ul class="overlay-buttons">
-																		<li><a href="/wp-content/uploads/2016/12/image-005.jpg" class="pf-icon-zoom" data-rel="prettyPhoto[gallery1]" title="Happy Paintings"><i class="fa fa-search"></i></a></li>
-																		<li><a href="../portfolio/happy-paintings/index.html" class="pf-icon-link" title="Happy Paintings"><i class="fa fa-link"></i></a></li>
-																	</ul>
-																	<div class="portfolio-title">
-																		<h4><a title="Happy Paintings" href="../portfolio/happy-paintings/index.html">Happy Paintings</a></h4>
+												if galleries.length
+													each gallery in galleries
+														if gallery.heroImage.exists
+															<div id="portfolio-199" class="portfolio-item isotope-post post-iso-w3 post-iso-h3 grid-cat-3 grid-cat-9 ">
+																<div class="post-inside-wrapper margin-top-20">
+																	<div class="portfolio-content">
+																		<div class="portfolio-image-overlay-wrapper">
+																			<div class="portfolio-image">
+																				img.img-responsive(src=gallery._.heroImage.limit(1280,960), width="370", height="340")
+																			</div>
+																		</div>
+																		<div class="portfolio-mask overlay-mask style-fullwidth text-center">
+																			<div class="overlay-content">
+																				<ul class="overlay-buttons">
+																					<li>
+																						a.pf-icon-zoom(href=gallery._.heroImage.limit(1280,960), data-rel="prettyPhoto[gallery1]")
+																							<i class="fa fa-search"></i>
+																					</li>
+																					//- <li><a href="../portfolio/happy-paintings/index.html" class="pf-icon-link" title="Happy Paintings"><i class="fa fa-link"></i></a></li>
+																				</ul>
+																				<div class="portfolio-title">
+																					//- <h4><a title="Happy Paintings" href="../portfolio/happy-paintings/index.html">Happy Paintings</a></h4>
+																				</div>
+																			</div>
+																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
-													</div>
-												</div>
+															each image in gallery.images
+																<div id="portfolio-199" class="portfolio-item isotope-post post-iso-w3 post-iso-h3 grid-cat-3 grid-cat-9 ">
+																	<div class="post-inside-wrapper margin-top-20">
+																		<div class="portfolio-content">
+																			<div class="portfolio-image-overlay-wrapper">
+																				<div class="portfolio-image">
+																					img.img-responsive(src=image.limit(1280,960), width="370", height="340")
+																				</div>
+																			</div>
+																			<div class="portfolio-mask overlay-mask style-fullwidth text-center">
+																				<div class="overlay-content">
+																					<ul class="overlay-buttons">
+																						<li>
+																							a.pf-icon-zoom(href=image.limit(1280,960), data-rel="prettyPhoto[gallery1]")
+																								<i class="fa fa-search"></i>
+																						</li>
+																						//- <li><a href="../portfolio/happy-paintings/index.html" class="pf-icon-link" title="Happy Paintings"><i class="fa fa-link"></i></a></li>
+																					</ul>
+																					<div class="portfolio-title">
+																						//- <h4><a title="Happy Paintings" href="../portfolio/happy-paintings/index.html">Happy Paintings</a></h4>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+														else
+															each image in gallery.images
+																<div id="portfolio-199" class="portfolio-item isotope-post post-iso-w3 post-iso-h3 grid-cat-3 grid-cat-9 ">
+																	<div class="post-inside-wrapper margin-top-20">
+																		<div class="portfolio-content">
+																			<div class="portfolio-image-overlay-wrapper">
+																				<div class="portfolio-image">
+																					img.img-responsive(src=image.limit(1280,960), width="370", height="340")
+																				</div>
+																			</div>
+																			<div class="portfolio-mask overlay-mask style-fullwidth text-center">
+																				<div class="overlay-content">
+																					<ul class="overlay-buttons">
+																						<li>
+																							a.pf-icon-zoom(href=image.limit(1280,960), data-rel="prettyPhoto[gallery1]")
+																								<i class="fa fa-search"></i>
+																						</li>
+																						//- <li><a href="../portfolio/happy-paintings/index.html" class="pf-icon-link" title="Happy Paintings"><i class="fa fa-link"></i></a></li>
+																					</ul>
+																					<div class="portfolio-title">
+																						//- <h4><a title="Happy Paintings" href="../portfolio/happy-paintings/index.html">Happy Paintings</a></h4>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
 											</div>
 										</div>
 									</div>
