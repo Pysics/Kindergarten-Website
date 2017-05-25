@@ -34,37 +34,53 @@
 								<div class="wpb_wrapper">
 									<div id="tpath_events_1" class="tpath-events-list-wrapper events-shortcode style-list columns-1">
 										<div class="ecs-event-list">
-											<div class="ecs-event event-item-1">
-												<div class="ecs-event-inner clearfix">
-													<div class="event-image">
-														<a href="../event/drawing-painting/index.html"><img width="1100" height="500" src="../wp-content/uploads/2016/12/image-010-1100x500.jpg" class="attachment-nashville-blog-large size-nashville-blog-large wp-post-image" alt="" /></a>
-													</div>
+
+											each post in data.posts.results
+												<div class="ecs-event event-item-1">
+													<div class="ecs-event-inner clearfix">
+														<div class="event-image">
+															a(href='/news/post/' + post.slug)
+																img.attachment-nashville-blog-large.size-nashville-blog-large.wp-post-image(src=post._.image.fit(160,160), width='1100', height='500')
+														</div>
+
 													<div class="event-grid-bottom-wrapper clearfix">
 														<div class="event-grid-bottom-inner">
 															<div class="event-grid-date-left">
 																<h6>
-																	<span class="event-date">3</span>
-																	<span class="event-month">Jun</span>
+																	<span class="event-date">#{post.publishedDate.getDate()}</span>
+																	<span class="event-month">#{post.publishedDate.getMonth()}</span>
 																</h6>
 															</div>
+
 															<div class="event-grid-info-right">
 																<div class="event-details-wrap">
-																	<p class="duration time"><i class="fa fa-clock-o"></i> 10:00 am to 2:00 pm</p>
-																	<p class="duration venue"><i class="fa fa-map-marker"></i> Kinder Gardens</p>
+																	if post.publishedDate
+																		<p class="duration time"><i class="fa fa-clock-o"></i> #{post.publishedDate.getFullYear() + '年' +  (post.publishedDate.getMonth()+1) + '月' + post.publishedDate.getDate() + '日'} </p>
+																		//- <p class="duration venue"><i class="fa fa-map-marker"></i> Kinder Gardens</p>
 																</div>
-																<h5 class="event-title summary"><a href="../event/drawing-painting/index.html" rel="bookmark">Drawing &#038; Painting</a></h5>
+
+																h5.event-title.summary
+																	a(href='/news/post/' + post.slug)= post.title
+
 																<div class="event-excerpt">
-																	<p>consectetur adipisicing elit, sed do eiusmod tempor. Porem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt...</p>
+																	p!= post.content.brief
 																</div>
-																<div class="event-btn"><a href="../event/drawing-painting/index.html" class="btn btn-simple-text eventbtn" title="Read More">Read More</a></div>
+																
+																<div class="event-btn">
+																	a.btn.btn-simple-text.eventbtn(href='/news/post/' + post.slug)
+																		| 查看更多...
+																</div>
 															</div>
 														</div>
 													</div>
+
 												</div>
 											</div>
 
-										//- </div><span class="ecs-all-events"><a href="../events/index.html" class="btn btn-default" rel="bookmark">View All Events</a></span></div>
+											//- </div><span class="ecs-all-events"><a href="../events/index.html" class="btn btn-default" rel="bookmark">View All Events</a></span></div>
 								</div>
+
+
 							</div>
 						</div>
 					</div>

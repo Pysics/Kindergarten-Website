@@ -24,4 +24,8 @@ jQuery(document).ready(function () {
 			break;
 	}
 
+	// 数字月份 => 英文月份
+	const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Oct', 'Dec'];
+	jQuery('.event-month').text(monthList[jQuery('.event-month').text()])
+
 })
