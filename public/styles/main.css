@@ -1,3 +1,9 @@
+@font-face {
+	font-family: mainFonts;
+	src: url('../fonts/ZYHei.ttf');
+}
+
+
 /*新闻页*/
 
 .event-image img {
@@ -5,8 +11,18 @@
 	max-height: 500px;
 }
 
+
 /*在线预约*/
 
 .zxyy label {
 	font-weight: bold;
+}
+
+.header-menu-nav #main-mega-menu-nav li a,
+.page-title-header h1.entry-title {
+	font-family: mainFonts, 微软雅黑;
+}
+
+.header-menu-nav #main-mega-menu-nav li a {
+	font-size: 20px;
 }
