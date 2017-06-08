@@ -1,7 +1,7 @@
-@font-face {
+/*@font-face {
 	font-family: mainFonts;
 	src: url('../fonts/ZYHei.ttf');
-}
+}*/
 
 
 /*新闻页*/
@@ -20,7 +20,8 @@
 
 .header-menu-nav #main-mega-menu-nav li a,
 .page-title-header h1.entry-title {
-	font-family: mainFonts, 微软雅黑;
+	/*font-family: mainFonts, 微软雅黑;*/
+	font-family: 微软雅黑;
 }
 
 .header-menu-nav #main-mega-menu-nav li a {
